@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
     private Vector2 Direction;// 2D Vector
     private CharacterController Controller;// Holds a CharacterController type component
     [SerializeField] private float Speed = 1f;// Float number that controls the speed of movement(Linear Proportion)
-    [SerializeField] private float GravityForce = -10f;// Float number that controls the force of Gravity
-    [SerializeField] private float JumpForce = 30f;// How fast/high the jump can go
+    [SerializeField] private float GravityForce = -6f;// Float number that controls the force of Gravity
+    [SerializeField] private float JumpForce=5f;// How fast/high the jump can go
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
     private float YForce;// Variable of type float that holds a velocity on the Y axis

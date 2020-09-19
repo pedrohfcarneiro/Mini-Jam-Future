@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Link : Targetable
 {
+    [SerializeField]private Rigidbody2D[] ObjectsToHold;
+    private void Start()
+    {
+        foreach (Rigidbody2D Object in ObjectsToHold)
+            Object.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
     public override void ExecuteAction()// This object's action when its interactable counterpart is actuated
     {
-        transform.parent.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        foreach (Rigidbody2D Object in ObjectsToHold)
+            Object.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         gameObject.SetActive(false);
     }
 }

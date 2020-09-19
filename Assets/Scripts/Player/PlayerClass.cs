@@ -18,7 +18,7 @@ public class PlayerClass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Mathf.Abs(RB2D.velocity.y)<=0.5f)/// Character is grounded
+        if(Controller.m_Grounded)/// Character is grounded
         {
             if(Mathf.Abs(RB2D.velocity.x)>0.7)// If the speed's magnitude is higher than 0
             {
@@ -32,11 +32,11 @@ public class PlayerClass : MonoBehaviour
         }
         else
         {
-            if(RB2D.velocity.y<0)
+            if(RB2D.velocity.y<=0.5f)
             {
                 // Falling Animation
             }
-            else
+            else if (RB2D.velocity.y>=0.5f)
             {
                 // Rising animation
             }

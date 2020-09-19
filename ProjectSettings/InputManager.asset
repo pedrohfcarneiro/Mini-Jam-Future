@@ -457,8 +457,8 @@ InputManager:
     m_Name: Interact
     descriptiveName: Button clicked in order to interact with objects
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: 
+    positiveButton: w
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

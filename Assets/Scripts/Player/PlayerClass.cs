@@ -17,6 +17,11 @@ public class PlayerClass : MonoBehaviour
     }
     public void NearInteractable()
     {
-        Debug.Log("Posso interagir com algo");
+        //** Do something **//
+    }
+    public void Interacting()
+    {
+        //** Do Something **//
+        Debug.Log("Interagindo com o objecto");
     }
 }

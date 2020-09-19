@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-guid: 3be75afa99a8e55429cd236073228104
+guid: 10782b6d6d83d374cada8667bb81e83b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3125634477355261619
-    second: LeverSpriteSheet_0
+      213: 2062230863363874490
+    second: LaserOff_0
   - first:
-      213: 8504733163015029092
-    second: LeverSpriteSheet_1
+      213: 2831848108417576031
+    second: LaserOff_1
   - first:
-      213: -3083021180013640976
-    second: LeverSpriteSheet_2
-  - first:
-      213: -7203133924560376091
-    second: LeverSpriteSheet_3
-  - first:
-      213: -5671012913551249065
-    second: LeverSpriteSheet_4
-  - first:
-      213: -7672742733604325532
-    second: LeverSpriteSheet_5
-  - first:
-      213: 3666693544727729124
-    second: LeverSpriteSheet_6
-  - first:
-      213: 3219798943900178506
-    second: LeverSpriteSheet_7
+      213: 9198677118367024535
+    second: LaserOff_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeverSpriteSheet_0
+      name: LaserOff_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,35 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41a68fc0048f94d0800000000000000
-      internalID: -3125634477355261619
+      spriteID: abe96a74b048e9c10800000000000000
+      internalID: 2062230863363874490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeverSpriteSheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 461cef270c1e60670800000000000000
-      internalID: 8504733163015029092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeverSpriteSheet_2
+      name: LaserOff_1
       rect:
         serializedVersion: 2
         x: 64
@@ -169,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f208424298e635d0800000000000000
-      internalID: -3083021180013640976
+      spriteID: f5c6710d9debc4720800000000000000
+      internalID: 2831848108417576031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeverSpriteSheet_3
+      name: LaserOff_2
       rect:
         serializedVersion: 2
         x: 96
@@ -190,92 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ee63050cd3590c90800000000000000
-      internalID: -7203133924560376091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeverSpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 751ff1b2dc38c41b0800000000000000
-      internalID: -5671012913551249065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeverSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 467fd8eb221f48590800000000000000
-      internalID: -7672742733604325532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeverSpriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e3d6b91a56b2e230800000000000000
-      internalID: 3666693544727729124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeverSpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a48195b84160fac20800000000000000
-      internalID: 3219798943900178506
+      spriteID: 795c7cb3a1448af70800000000000000
+      internalID: 9198677118367024535
       vertices: []
       indices: 
       edges: []

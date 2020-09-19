@@ -40,7 +40,8 @@ public class Tracker : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Backspace))
         {
-            isRecording = false;
+            StopRecording();
+            ManagerOfScene.Instance.reload = true;
         }
 
         if (isRecording)
@@ -51,14 +52,33 @@ public class Tracker : MonoBehaviour
     {
         if(canRecord)
         {
-            pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));   //Grava uma nova posição e rotação do player
-            StopRecording();
+            pointsInTime.Add(new PointInTime(transform.position, transform.rotation));   //Grava uma nova posição e rotação do player
+            Debug.Log(pointsInTime[pointsInTime.Count-1].position);
+            StopSingleRecord();
         }
     }
 
-    public void StopRecording()                 //Para a gravação
+    public void StopSingleRecord()                 //Para a gravação
     {
         canRecord = false;
         timer = 0;
+    }
+
+    public void StopRecording()
+    {
+        isRecording = false;
+        switch(TrackingManager.Instance.numberOfCurrentLoops)
+        {
+            case 0:
+                TrackingManager.Instance.numberOfCurrentLoops++;
+                TrackingManager.Instance.loop1_Points = this.pointsInTime;
+                Debug.Log(TrackingManager.Instance.loop1_Points[0].position);
+                break;
+            case 1:
+                TrackingManager.Instance.numberOfCurrentLoops++;
+                TrackingManager.Instance.loop2_Points = this.pointsInTime;
+                Debug.Log(TrackingManager.Instance.loop1_Points[0].position);
+                break;
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] private float InteractableDistance= .5f;// Defines the distance from which the player can interact with this
     private UnityAction NearInteractable, Interacting;
@@ -26,7 +26,9 @@ public class Interactable : MonoBehaviour
             if (Input.GetButtonDown("Interact"))// If the player presses the interact button
             {
                 Interacting.Invoke();// Calls all functions tied to interacting with an interactable object
-            }
+                Actuated();// Function that will do something when actuated(Animation, specific effects...)
+}
         }
     }
+    public abstract void Actuated();// Function that will do something when actuated(Animation, specific effects...)
 }

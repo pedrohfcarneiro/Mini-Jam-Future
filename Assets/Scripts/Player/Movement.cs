@@ -10,7 +10,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float Speed = 1f;// Float number that controls the speed of movement(Linear Proportion)
     [SerializeField] private float GravityForce = -6f;// Float number that controls the force of Gravity
     [SerializeField] private float JumpForce=5f;// How fast/high the jump can go
-    [SerializeField] private Transform m_GroundCheck;
+    [SerializeField] private float DownForce = 2f; // How fast the player accelerates downwards
+    [SerializeField] private Transform m_GroundCheck; // Empty game object on the player close to its feet to show where ground is
     [SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
     private float YForce;// Variable of type float that holds a velocity on the Y axis
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -35,11 +36,11 @@ public class Movement : MonoBehaviour
     private void VerticalMove()
     {
         bool isGrounded = false;
-        Collider[] colliders = Physics.OverlapSphere(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        Collider[] colliders = Physics.OverlapSphere(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);// Acquires all the colliders around the whatIsGround gameobject
+        for (int i = 0; i < colliders.Length; i++)// Go through all detected colliders
         {
-            if (colliders[i].gameObject != gameObject)
-                isGrounded = true;
+            if (colliders[i].gameObject != gameObject)// Ignore the player itself
+                isGrounded = true;// The player is touching ground
         }
         if (isGrounded)// If the controller is touching ground
         {
@@ -47,8 +48,12 @@ public class Movement : MonoBehaviour
             if (Input.GetButtonDown("Jump"))// If the player presses the jump button
                 YForce += JumpForce;// Add a high value for jump
         }
-        YForce += GravityForce * Time.deltaTime;// Increases Y velocity downwards every frame
+        if(YForce>=0)
+            YForce += GravityForce * Time.deltaTime;// Increases Y velocity downwards every frame
+        else
+            YForce += (GravityForce*DownForce) * Time.deltaTime;// Increases Y velocity downwards every frame
         Direction = new Vector2(0, YForce);// Creates a 2D Vector that points on the Y axis
         Controller.Move(Direction * Time.deltaTime);// Moves the player object
     }
+    
 }

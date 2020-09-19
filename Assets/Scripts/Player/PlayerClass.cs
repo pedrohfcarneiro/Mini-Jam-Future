@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerClass : MonoBehaviour
 {
@@ -23,5 +24,14 @@ public class PlayerClass : MonoBehaviour
     {
         //** Do Something **//
         Debug.Log("Interagindo com o objecto");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "StartLevelTrigger")
+        {
+            ManagerOfScene.Instance.OnLevelStart();
+            Debug.Log("chamou onTriggerExit");
+        }
     }
 }

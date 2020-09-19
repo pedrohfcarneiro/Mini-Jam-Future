@@ -53,7 +53,7 @@ public class PlayerClass : MonoBehaviour
         Debug.Log("Interagindo com o objecto");
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "StartLevelTrigger")
         {

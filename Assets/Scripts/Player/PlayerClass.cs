@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerClass : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Animator animator;
     private Rigidbody2D RB2D;// Rigidbody2D type variable that will be used to verify if the player's velocity is different than 0
     private CharacterController2D Controller;// Character controller script type that will be used to determine if the player is grounded
     void Start()
@@ -19,10 +20,19 @@ public class PlayerClass : MonoBehaviour
     {
         if(Controller.m_Grounded)/// Character is grounded
         {
-            if(Mathf.Abs(RB2D.velocity.x)>=0)// If the speed's magnitude is higher than 0
+            if(Mathf.Abs(RB2D.velocity.x)>0.7)// If the speed's magnitude is higher than 0
             {
-                /// Character is moving
+               animator.SetBool("Grounded", true);
+               animator.SetBool("IsWalking", true);/// Character is moving
             }
+            else 
+            {
+               animator.SetBool("IsWalking", false);/// Character is not moving
+            }
+        }
+        else
+        {
+            animator.SetBool("Grounded", false);/// Character is not grounded
         }
     }
     public void NearInteractable()

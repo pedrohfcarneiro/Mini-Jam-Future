@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractableDistance: 1.5
+  Targets: []
 --- !u!65 &1231488134
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -313,6 +313,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 1412286965}
   m_CeilingCheck: {fileID: 815858319}
   m_CrouchDisableCollider: {fileID: 0}
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -365,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25666cd09c7fd5d4fbb9bbf8e9b5e1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 268418820}
 --- !u!212 &268418827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -496,6 +498,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractableDistance: 1.5
   Targets: []
+  Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &1100421491
 BoxCollider:
   m_ObjectHideFlags: 0

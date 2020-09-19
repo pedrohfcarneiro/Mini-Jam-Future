@@ -67,11 +67,11 @@ public class ManagerOfScene : MonoBehaviour
     {
         if(numberOfClones == 0)
         {
-            playerClones[0] = GameObject.Instantiate(Resources.Load("Prefabs/Player") as GameObject, playersInitialPositions[0].position, playersInitialPositions[0].rotation);
+            playerClones[0] = playerOriginal;
             playerClones[0].GetComponent<Movement>().enabled = false;
+            playerClones[0].tag = "Untagged";
             numberOfClones++;
         }
-        GameObject.Destroy(playerOriginal);
         playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/Player") as GameObject, initialRoomPosition, playersInitialPositions[0].rotation);
         playerOriginal.tag = "Player";
         moveClones = true;

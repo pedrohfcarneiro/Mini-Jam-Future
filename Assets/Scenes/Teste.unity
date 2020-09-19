@@ -767,7 +767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reload: 0
   moveClones: 0
-  cloneSpeed: 2
+  cloneSpeed: 15
   numberOfClones: 0
 --- !u!4 &513268452
 Transform:

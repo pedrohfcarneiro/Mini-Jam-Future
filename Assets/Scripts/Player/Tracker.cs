@@ -52,8 +52,8 @@ public class Tracker : MonoBehaviour
     {
         if(canRecord)
         {
-            pointsInTime.Add(new PointInTime(transform.position, transform.rotation));   //Grava uma nova posição e rotação do player
-            Debug.Log(pointsInTime[pointsInTime.Count-1].position);
+            pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));   //Grava uma nova posição e rotação do player
+            //Debug.Log(pointsInTime[pointsInTime.Count-1].position);
             StopSingleRecord();
         }
     }

@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 1318547736}
   - component: {fileID: 1318547735}
   - component: {fileID: 1318547734}
+  - component: {fileID: 1318547741}
   m_Layer: 0
   m_Name: MC_blue
   m_TagString: Player
@@ -997,7 +998,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0017889738}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1008,7 +1009,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.50647336, y: 1}
+  m_Size: {x: 0.50647336, y: 0.53845525}
   m_EdgeRadius: 0
 --- !u!114 &1318547735
 MonoBehaviour:
@@ -1151,6 +1152,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1318547741
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318547733}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.24}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &1352416410
 GameObject:
   m_ObjectHideFlags: 0

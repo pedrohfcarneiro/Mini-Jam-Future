@@ -32,6 +32,14 @@ public class PlayerClass : MonoBehaviour
         }
         else
         {
+            if(RB2D.velocity.y<=0.5f)
+            {
+                // Falling Animation
+            }
+            else if (RB2D.velocity.y>=0.5f)
+            {
+                // Rising animation
+            }
             animator.SetBool("Grounded", false);/// Character is not grounded
         }
     }

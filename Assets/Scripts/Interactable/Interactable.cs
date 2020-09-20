@@ -27,7 +27,7 @@ public abstract class Interactable : MonoBehaviour
             {
                 Interacting.Invoke();// Calls all functions tied to interacting with an interactable object
                 Actuated();// Function that will do something when actuated(Animation, specific effects...)
-}
+            }
         }
     }
     public abstract void Actuated();// Function that will do something when actuated(Animation, specific effects...)

@@ -2103,10 +2103,6 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5008263508458382855, guid: ccfa0b540a786ea4abef0e36b64561ca, type: 3}
-      propertyPath: Targets.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008263508458382855, guid: ccfa0b540a786ea4abef0e36b64561ca, type: 3}
       propertyPath: Targets.Array.data[0]
       value: 
       objectReference: {fileID: 680401745}
@@ -2130,10 +2126,6 @@ PrefabInstance:
       propertyPath: Targets.Array.data[5]
       value: 
       objectReference: {fileID: 1247671758}
-    - target: {fileID: 5008263508458382855, guid: ccfa0b540a786ea4abef0e36b64561ca, type: 3}
-      propertyPath: Reusable
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccfa0b540a786ea4abef0e36b64561ca, type: 3}
 --- !u!1001 &5146497653470748335
@@ -2314,18 +2306,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7638450234164467157, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.013782173
-      objectReference: {fileID: 0}
-    - target: {fileID: 7638450234164467157, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.02000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7638450234164467157, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-      propertyPath: m_Size.x
-      value: 0.4604357
-      objectReference: {fileID: 0}
     - target: {fileID: 7638450234164467158, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
       propertyPath: m_Name
       value: MC_blue

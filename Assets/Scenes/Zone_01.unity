@@ -1390,7 +1390,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 6370789793716087736, guid: 7979ab2786243fc438f41c56a5e8dc91, type: 3}
       - {fileID: -5023128505897063698, guid: 7979ab2786243fc438f41c56a5e8dc91, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -1646,30 +1646,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6212028856026962617, guid: f26e5ff43f1218540b8eeb102d8d2f33, type: 3}
   m_PrefabInstance: {fileID: 395396445}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &423489591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7638450234164467158, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-  m_PrefabInstance: {fileID: 7638450235194746051}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &423489600
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423489591}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba0e4e150e8e66741ba3ce31cfccb8b2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &680401745 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5496828600644790607, guid: a6fd5e3280529ea4b8c6f011c8573687, type: 3}
@@ -1998,18 +1974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7638450234164467156, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-      propertyPath: m_JumpForce
-      value: 330
-      objectReference: {fileID: 0}
     - target: {fileID: 7638450234164467158, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
       propertyPath: m_Name
       value: MC_blue
       objectReference: {fileID: 0}
-    - target: {fileID: 7638450234164467161, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 423489600}
     - target: {fileID: 7638450234164467167, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.51

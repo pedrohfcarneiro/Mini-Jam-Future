@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1acd7891351034285ba248c7193408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenRecordings: 0
+  timeBetweenRecordings: 0.01
+  timeOfSingleRewind: 0.01
+  timeOfSingleReplay: 0.01
   index: 0
   canRecordSingle: 0
   rewindDone: 0
@@ -118,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cc8ef48c9443c4ba93614d6d7cca7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myChain: {fileID: 0}
 --- !u!50 &6212028856026962619
 Rigidbody2D:
   serializedVersion: 4

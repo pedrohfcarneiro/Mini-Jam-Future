@@ -6,15 +6,25 @@ using UnityEngine.Events;
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] private float InteractableDistance= .5f;// Defines the distance from which the player can interact with this
-    private UnityAction NearInteractable;
+    public UnityAction NearInteractable;
     public UnityAction Interacting;
-    private GameObject Player;// Player Reference
-    [SerializeField] private Targetable[] Targets;// Target objects reference
+    public GameObject Player;// Player Reference
+    [SerializeField] public Targetable[] Targets;// Target objects reference
     [SerializeField] private bool Reusable = false;// Boolean to determine if this can be interacted with more than once
     private bool Used=false;// Boolean to determine if, if its not reusable, this has been actuated once or not
+    private void OnEnable()
+    {
+        ManagerOfScene.startReplayEvent+=UpdatePlayer;// Listener to this function to update the player used by this script upon creation of clone
+    }
+    public void UpdatePlayer()// Function designed to update the player when creating a new player object
+    {
+        Debug.Log("Updated the player object");
+        Player = GameObject.FindGameObjectWithTag("Player");// Set the reference to the player
+    }
     public virtual void Awake()
     {
-        Player = Player?? GameObject.FindGameObjectWithTag("Player");// If player is null, assign a player
+        if (Player == null)
+            Player = GameObject.FindGameObjectWithTag("Player");
         NearInteractable += Player.GetComponent<PlayerClass>().NearInteractable;// Adds this to the listener
         Interacting += Player.GetComponent<PlayerClass>().Interacting;// Adds this to the Listener
         foreach (Targetable Target in Targets)// Go through the list of Targetable objects
@@ -51,6 +61,7 @@ public abstract class Interactable : MonoBehaviour
     }
     public  virtual void OnUnActuation()
     {
+
         // Do something//
     }
     public abstract void Actuated();// Function that will do something when actuated(Animation, specific effects...)

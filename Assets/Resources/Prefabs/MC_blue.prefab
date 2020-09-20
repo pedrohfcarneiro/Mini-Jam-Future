@@ -147,8 +147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1acd7891351034285ba248c7193408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRecording: 0
-  timeBetweenRecordings: 0
+  timeBetweenRecordings: 0.01
+  timeOfSingleRewind: 0.01
+  timeOfSingleReplay: 0.01
+  index: 0
+  canRecordSingle: 0
+  rewindDone: 0
+  replayDone: 1
+  canRewind: 1
+  canReplay: 1
+  whichIAm: 0
 --- !u!114 &7638450234164467162
 MonoBehaviour:
   m_ObjectHideFlags: 0

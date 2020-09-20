@@ -25,7 +25,7 @@ public class ManagerOfScene : MonoBehaviour
     }
 
     #endregion
-
+    
     public bool reload = false;
     public bool isRewinding = false;
     public bool replay = false;
@@ -37,11 +37,22 @@ public class ManagerOfScene : MonoBehaviour
     private Vector3 initialRoomPosition = new Vector3();
     #endregion
 
-    private GameObject playerOriginal;
-    private GameObject[] playerClones = new GameObject[4];
-    public int numberOfClones = 0;
+    public GameObject playerOriginal;
+    public GameObject[] playerClones = new GameObject[4];
     private int index = 0;
     private float movementProgress = 0;
+
+    #region SceneObjects
+    public int numberOfClones = 0;
+    public List<GameObject> droppingBoxes = new List<GameObject>();
+    public List<Tracker> trackersInScene = new List<Tracker>();
+    #endregion
+
+    public delegate void Management();
+    public static event Management rewindEvent;
+    public static event Management replayEvent;
+    public static event Management startRewindEvent;
+    public static event Management startReplayEvent;
 
     private void Awake()
     {
@@ -52,6 +63,13 @@ public class ManagerOfScene : MonoBehaviour
     {
         playerOriginal = GameObject.FindGameObjectWithTag("Player");
         initialRoomPosition = GameObject.FindGameObjectWithTag("InitialRoom").transform.position;
+
+        //Find Trackers in Scene
+        Tracker[] obs = FindObjectsOfType<Tracker>();
+        foreach(Tracker tr in obs)
+        {
+            trackersInScene.Add(tr);
+        }
     }
 
     void Update()
@@ -86,98 +104,87 @@ public class ManagerOfScene : MonoBehaviour
             numberOfClones++;
         }
         playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_blue") as GameObject, initialRoomPosition, playersInitialPositions[0].rotation);
+        playerOriginal.GetComponent<Tracker>().canRewind = false;
+        playerOriginal.GetComponent<Tracker>().canReplay = false;
         playerOriginal.tag = "Player";
-        movementProgress = 0;
-        StartRewind();
         reload = false;
+        StartRewind();
     }
 
     public void Rewind()
     {
-        bool closeToNext = false;
-        if (index <= TrackingManager.Instance.loop1_Points.Count && index >= 0)
+        rewindEvent();
+
+        if(CheckIfRewindIsDone())
         {
-            if ((TrackingManager.Instance.loop1_Points[index].position - playerClones[0].transform.position).magnitude <= 0.06f)
-            {
-                closeToNext = true;
-            }
-        }
-        if(playerClones != null)
-        {
-            if (index <= TrackingManager.Instance.loop1_Points.Count && index >= 0)
-            {
-                playerClones[0].transform.position = TrackingManager.Instance.loop1_Points[index].position;
-                playerClones[0].transform.rotation = TrackingManager.Instance.loop1_Points[index].rotation;
-                movementProgress += Time.deltaTime * rewindSpeed;
-                //Debug.Log(movementProgress);
-                if (closeToNext)
-                {
-                    Debug.Log(TrackingManager.Instance.loop1_Points[index].position);
-                    index = index - 2;
-                    Debug.Log(index);
-                    movementProgress = 0;
-                }
-            }
-            else
-            {
-                StopRewinding();
-            }
+            StopRewinding();
         }
     }
 
     public void Replay()
     {
-        bool closeToNext = false;
-        if (index < TrackingManager.Instance.loop1_Points.Count && index >= 0)
+        replayEvent();
+
+        if (CheckIfReplayIsDone())
         {
-            if ((TrackingManager.Instance.loop1_Points[index].position - playerClones[0].transform.position).magnitude <= 0.06f)
-            {
-                closeToNext = true;
-            }
-        }
-        if (playerClones != null)
-        {
-            if (index < TrackingManager.Instance.loop1_Points.Count && index >= 0)
-            {
-                playerClones[0].transform.position = TrackingManager.Instance.loop1_Points[index].position;
-                playerClones[0].transform.rotation = TrackingManager.Instance.loop1_Points[index].rotation;
-                movementProgress += Time.deltaTime * rewindSpeed;
-                //Debug.Log(movementProgress);
-                if (closeToNext)
-                {
-                    Debug.Log(TrackingManager.Instance.loop1_Points[index].position);
-                    index = index + 2;
-                    Debug.Log(index);
-                    movementProgress = 0;
-                }
-            }
-            else
-            {
-                StopReplay();
-            }
+            StopReplay();
         }
     }
 
     public void StartRewind()
     {
-        index = TrackingManager.Instance.loop1_Points.Count - 1;
+        startRewindEvent();
         isRewinding = true;
+    }
+
+    public void StartReplay()
+    {
+        startReplayEvent();
+        replay = true;
     }
 
     public void StopRewinding()
     {
         isRewinding = false;
+        playerOriginal.GetComponent<Tracker>().canRewind = true;
         StartReplay();
-    }
-
-    public void StartReplay()
-    {
-        index = 1;
-        replay = true;
     }
     public void StopReplay()
     {
         replay = false;
+        playerOriginal.GetComponent<Tracker>().canReplay = true;
+    }
+
+    
+    
+
+    public bool CheckIfRewindIsDone()
+    {
+        int counter = 0;
+        foreach(Tracker tr in trackersInScene)
+        {
+            if (tr.rewindDone)
+                counter++;
+        }
+        if (counter == trackersInScene.Count)
+            return true;
+        else
+            return false;
+    }
+
+    public bool CheckIfReplayIsDone()
+    {
+        int counter = 0;
+        foreach (Tracker tr in trackersInScene)
+        {
+            if (tr.replayDone)
+                counter++;
+        }
+        if (counter == trackersInScene.Count)
+            return true;
+        else
+            return false;
+
     }
 
     public void OnLevelStart()

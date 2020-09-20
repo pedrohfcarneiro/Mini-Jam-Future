@@ -26,10 +26,13 @@ public class TrackingManager : MonoBehaviour
     #endregion
 
     public int numberOfCurrentLoops = 0;
-    public List<PointInTime> loop1_Points = new List<PointInTime>();
-    public List<PointInTime> loop2_Points = new List<PointInTime>();
-    
-    
+    public List<List<PointInTime>> loopsPoints = new List<List<PointInTime>>();
+    public List<List<PointInTime>> DroppingBoxesPoints = new List<List<PointInTime>>();
+    public bool isRecording = false;
+    public delegate void BringInfoFromStuff();
+    public static event BringInfoFromStuff bringInfo;
+
+
     private void Awake()
     {
         _instance = this;
@@ -43,5 +46,18 @@ public class TrackingManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StopRecording()
+    {
+        isRecording = false;
+        if(bringInfo != null)
+        {
+            bringInfo();
+        }
+    }
+    public void StartRecording()
+    {
+        isRecording = true;
     }
 }

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Laser : Targetable
 {
-    [SerializeField] private bool Active;
+    private bool Active;
+    private void Start()
+    {
+        Active = GetComponent<Renderer>().enabled;// Active starts the same as the renderer
+    }
     public override void ExecuteAction()
     {
         GetComponent<Renderer>().enabled= !GetComponent<Renderer>().enabled;// Activates the Renderer

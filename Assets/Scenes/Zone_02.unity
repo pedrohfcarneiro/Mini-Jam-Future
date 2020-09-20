@@ -1807,10 +1807,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MC_blue
       objectReference: {fileID: 0}
-    - target: {fileID: 7638450234164467163, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7638450234164467167, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7

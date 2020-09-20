@@ -15,6 +15,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         CharacterMove();// Moves the character every frame
     }
     private void CharacterMove()

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Laser : Targetable
 {
-    private bool Active = false;
+    [SerializeField] private bool Active;
     public override void ExecuteAction()
     {
         GetComponent<Renderer>().enabled= !GetComponent<Renderer>().enabled;// Activates the Renderer
-        Active = true;// Now lasers are active
+        Active = !Active;// Invert if players are 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

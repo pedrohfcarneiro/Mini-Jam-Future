@@ -17,6 +17,21 @@ TextureImporter:
   - first:
       213: -3731462611860913067
     second: Fundo_2
+  - first:
+      213: 2812699830433306001
+    second: Fundo_2
+  - first:
+      213: -8543907825330763846
+    second: Fundo_3
+  - first:
+      213: 8333792862093508821
+    second: Fundo_4
+  - first:
+      213: 2666432232379254654
+    second: Fundo_3
+  - first:
+      213: 2577959534182154287
+    second: Fundo_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -160,8 +175,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 554016f468e273cc0800000000000000
-      internalID: -3731462611860913067
+      spriteID: 19557cce797b80720800000000000000
+      internalID: 2812699830433306001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fundo_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.75, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e770e9cecf1110520800000000000000
+      internalID: 2666432232379254654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fundo_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.75, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f204248a980c6c320800000000000000
+      internalID: 2577959534182154287
       vertices: []
       indices: 
       edges: []

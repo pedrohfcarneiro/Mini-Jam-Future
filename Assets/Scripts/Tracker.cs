@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class Tracker : MonoBehaviour
 {
-    [SerializeField]private float timeBetweenRecordings;
+    [SerializeField] private float timeBetweenRecordings;
+    [SerializeField] private float timeOfSingleRewind;
+    [SerializeField] private float timeOfSingleReplay;
     private float timer;
+    private float rewindTimer;
+    private float replayTimer;
     public int index = 0;
     public bool canRecordSingle = false;
     public bool rewindDone = false;
@@ -145,6 +149,7 @@ public class Tracker : MonoBehaviour
         {
             bool closeToNext = false;
             rewindDone = false;
+            rewindTimer += Time.deltaTime;
             if (index <= TrackingManager.Instance.loopsPoints[0].Count && index >= 0)
             {
                 if ((TrackingManager.Instance.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
@@ -161,8 +166,13 @@ public class Tracker : MonoBehaviour
                     if (closeToNext)
                     {
                         Debug.Log(TrackingManager.Instance.loopsPoints[0][index].position);
-                        index = index - 2;
+                        if (rewindTimer >= timeOfSingleRewind)
+                        {
+                            index = index - 1;
+                            rewindTimer = 0;
+                        }
                         Debug.Log(index);
+
                     }
                 }
                 else
@@ -179,6 +189,7 @@ public class Tracker : MonoBehaviour
         {
             bool closeToNext = false;
             rewindDone = false;
+            rewindTimer += Time.deltaTime;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().simulated = false;
             if (index <= TrackingManager.Instance.DroppingBoxesPoints[whichIAm].Count && index >= 0)
@@ -197,7 +208,11 @@ public class Tracker : MonoBehaviour
                     if (closeToNext)
                     {
                         Debug.Log(TrackingManager.Instance.DroppingBoxesPoints[whichIAm][index].position);
-                        index = index - 2;
+                        if (rewindTimer >= timeOfSingleRewind)
+                        {
+                            index = index - 1;
+                            rewindTimer = 0;
+                        }
                         Debug.Log(index);
                     }
                 }
@@ -216,6 +231,7 @@ public class Tracker : MonoBehaviour
         if (canReplay)
         {
             bool closeToNext = false;
+            replayTimer += Time.deltaTime;
             foreach(KeyValuePair<int,GameObject> pair in interactions)
             {
                 if(pair.Key == index && !interactingWithKeyValue)
@@ -244,7 +260,11 @@ public class Tracker : MonoBehaviour
                     transform.rotation = TrackingManager.Instance.loopsPoints[0][index].rotation;
                     if (closeToNext)
                     {
-                        index = index + 1;
+                        if (replayTimer >= timeOfSingleReplay)
+                        {
+                            index = index + 1;
+                            replayTimer = 0;
+                        }
                         Debug.Log(index);
                     }
                 }
@@ -261,6 +281,7 @@ public class Tracker : MonoBehaviour
         if (pointsInTime != null && canRewind)
         {
             index = pointsInTime.Count - 1;
+            rewindTimer = 0;
         }
     }
 
@@ -270,6 +291,7 @@ public class Tracker : MonoBehaviour
         if (pointsInTime != null && canReplay)
         {
             index = 0;
+            replayTimer = 0;
         }
     }
 

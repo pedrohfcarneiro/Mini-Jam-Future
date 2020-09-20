@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     private CharacterController2D Controller;// Holds a CharacterController type component
     [SerializeField] private float Speed = 10f;// Float number that controls the speed of movement(Linear Proportion)
+    private bool Jump=false;
     void Start()
     {
         Controller = GetComponent<CharacterController2D>();// Reference to the component in the player object is set
@@ -15,7 +16,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Jump"))// If the player presses the jump button
+            Jump = true;
     }
     private void FixedUpdate()
     {
@@ -23,9 +25,8 @@ public class Movement : MonoBehaviour
     }
     private void CharacterMove()
     {
-        bool Jump = false;
-        if (Input.GetButtonDown("Jump"))// If the player presses the jump button
-            Jump = true;
+        
         Controller.Move(Speed * Input.GetAxis("Horizontal"), false,Jump);// Moves the player object
+        Jump = false;
     }
 }

@@ -9,6 +9,8 @@ public abstract class Interactable : MonoBehaviour
     private UnityAction NearInteractable, Interacting;
     private GameObject Player;// Player Reference
     [SerializeField] private Targetable[] Targets;// Target objects reference
+    [SerializeField] private bool Reusable = false;// Boolean to determine if this can be interacted with more than once
+    private bool Used=false;// Boolean to determine if, if its not reusable, this has been actuated once or not
     public virtual void Awake()
     {
         Player = Player?? GameObject.FindGameObjectWithTag("Player");// If player is null, assign a player
@@ -27,11 +29,14 @@ public abstract class Interactable : MonoBehaviour
         if ((Player.transform.position - transform.position).magnitude <= InteractableDistance)// If player is within interactable distance
         {
             NearInteractable.Invoke();// Calls all functions tied to  being near an interactable object
-            if (Input.GetButtonDown("Interact"))// If the player presses the interact button
+            if (Input.GetButtonDown("Interact") && !Used)// If the player presses the interact button and is able to use it
             {
+                Debug.Log("Actuated");
                 Interacting.Invoke();// Calls all functions tied to interacting with an interactable object
                 Actuated();// Function that will do something when actuated(Animation, specific effects...)
-            }
+                if (!Reusable)// If it is not reusable
+                    Used = true;// Can't use it again
+            }   
         }
     }
     public abstract void Actuated();// Function that will do something when actuated(Animation, specific effects...)

@@ -1685,6 +1685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractableDistance: 0.2
   Targets: []
+  Reusable: 0
 --- !u!4 &940406933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8339306992701208983, guid: 3784fda8602a89c40ae3ac81a08e2151, type: 3}
@@ -2002,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1508018266760242331, guid: 14f6b60cff81e4749903496409835ca9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1508018266760242331, guid: 14f6b60cff81e4749903496409835ca9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2129,6 +2130,10 @@ PrefabInstance:
       propertyPath: Targets.Array.data[5]
       value: 
       objectReference: {fileID: 1247671758}
+    - target: {fileID: 5008263508458382855, guid: ccfa0b540a786ea4abef0e36b64561ca, type: 3}
+      propertyPath: Reusable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccfa0b540a786ea4abef0e36b64561ca, type: 3}
 --- !u!1001 &5146497653470748335

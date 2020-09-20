@@ -14,7 +14,8 @@ public class Lever : Interactable
     }
     public override void Actuated()
     {
-        if(Flippable)
+        Interacting.Invoke();// Calls all functions tied to interacting with an interactable object
+        if (Flippable)
         {
             if (!Flip)
                 GetComponent<SpriteRenderer>().sprite = Sprites[1];// Actuated state of the sprite

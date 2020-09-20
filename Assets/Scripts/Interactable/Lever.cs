@@ -10,10 +10,6 @@ public class Lever : Interactable
     {
         GetComponent<SpriteRenderer>().sprite = Sprites[0];// Initial state of the sprite
     }
-    void Update()
-    {
-        DetectPlayer();
-    }
     public override void Actuated()
     {
         GetComponent<SpriteRenderer>().sprite = Sprites[1];// Initial state of the sprite

@@ -18,6 +18,10 @@ public abstract class Interactable : MonoBehaviour
             if (Target != null)// If not null
                 Interacting += Target.ExecuteAction;// Stores the reference to the linked object
     }
+    private void Update()
+    {
+        DetectPlayer();
+    }
     public virtual void DetectPlayer()// Function designed to detect if the player is withing interactable distance from the object
     {
         if ((Player.transform.position - transform.position).magnitude <= InteractableDistance)// If player is within interactable distance

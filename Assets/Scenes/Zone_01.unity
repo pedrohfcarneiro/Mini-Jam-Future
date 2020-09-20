@@ -1666,6 +1666,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &927353769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5615238260316344529, guid: 9e0ad581db816d84bb7ea631c77802fc, type: 3}
+  m_PrefabInstance: {fileID: 5615238260111231310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &927353770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927353769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc8309c5e0b55d48953b8650e9bc91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractableDistance: 0.2
+  Targets: []
 --- !u!4 &940406933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8339306992701208983, guid: 3784fda8602a89c40ae3ac81a08e2151, type: 3}
@@ -1855,6 +1874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1742459382}
     m_Modifications:
+    - target: {fileID: 155041130454680065, guid: 139d77070bda265418b24626bc4bfcbb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 155041130454680066, guid: 139d77070bda265418b24626bc4bfcbb, type: 3}
       propertyPath: m_Name
       value: Middle Laser
@@ -1959,6 +1982,10 @@ PrefabInstance:
     - target: {fileID: 980454193560951803, guid: 10321d1eb4d99be4f867497169254c61, type: 3}
       propertyPath: m_Name
       value: Bottom Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 980454193560951806, guid: 10321d1eb4d99be4f867497169254c61, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10321d1eb4d99be4f867497169254c61, type: 3}
@@ -2351,6 +2378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1742459382}
     m_Modifications:
+    - target: {fileID: 8339306992701208981, guid: 3784fda8602a89c40ae3ac81a08e2151, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8339306992701208982, guid: 3784fda8602a89c40ae3ac81a08e2151, type: 3}
       propertyPath: m_Name
       value: Top Laser

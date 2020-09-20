@@ -8,8 +8,8 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] private float InteractableDistance= .5f;// Defines the distance from which the player can interact with this
     private UnityAction NearInteractable;
     public UnityAction Interacting;
-    private GameObject Player;// Player Reference
-    [SerializeField] private Targetable[] Targets;// Target objects reference
+    public GameObject Player;// Player Reference
+    [SerializeField] public Targetable[] Targets;// Target objects reference
     [SerializeField] private bool Reusable = false;// Boolean to determine if this can be interacted with more than once
     private bool Used=false;// Boolean to determine if, if its not reusable, this has been actuated once or not
     public virtual void Awake()

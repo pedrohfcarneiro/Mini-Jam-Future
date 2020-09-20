@@ -697,7 +697,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1384,8 +1384,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 5
     m_Data: {fileID: -5835682199983588531, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -748655851102102446, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: 9046047427341356226, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
   - m_RefCount: 68
@@ -1396,8 +1396,8 @@ Tilemap:
     m_Data: {fileID: 7652805371216193885, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 167602090117647133, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -748655851102102446, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
   - m_RefCount: 15
     m_Data: {fileID: 8690548131171678798, guid: 7b25eba023502db498d24b76d4a16fbd, type: 3}
   - m_RefCount: 1
@@ -1684,6 +1684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractableDistance: 0.2
+  Player: {fileID: 0}
   Targets: []
   Reusable: 0
 --- !u!4 &940406933 stripped
@@ -1867,6 +1868,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1961433121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961433122}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: InitialRoom
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961433122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961433121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.57, y: -3.35, z: -3.4200761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &155041130682451582
 PrefabInstance:

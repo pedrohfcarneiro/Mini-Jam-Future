@@ -232,19 +232,18 @@ public class Tracker : MonoBehaviour
         {
             bool closeToNext = false;
             replayTimer += Time.deltaTime;
-            foreach(KeyValuePair<int,GameObject> pair in interactions)
+            
+            foreach (KeyValuePair<int,GameObject> pair in interactions)
             {
                 if(pair.Key == index && !interactingWithKeyValue)
                 {
                     Debug.Log("interagiu dnv");
                     pair.Value.GetComponent<Interactable>().Interacting.Invoke();
                     interactingWithKeyValue = true;
-                }
-                else if(pair.Key != index)
-                {
-                    interactingWithKeyValue = false;
+                    Debug.Log("Já interagiu?: " + interactingWithKeyValue);
                 }
             }
+
             if (index < TrackingManager.Instance.loopsPoints[0].Count && index >= 0)
             {
                 if ((TrackingManager.Instance.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
@@ -262,6 +261,7 @@ public class Tracker : MonoBehaviour
                     {
                         if (replayTimer >= timeOfSingleReplay)
                         {
+                            interactingWithKeyValue = false;
                             index = index + 1;
                             replayTimer = 0;
                         }

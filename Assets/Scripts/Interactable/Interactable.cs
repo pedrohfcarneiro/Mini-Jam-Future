@@ -36,6 +36,12 @@ public abstract class Interactable : MonoBehaviour
                 Actuated();// Function that will do something when actuated(Animation, specific effects...)
                 if (!Reusable)// If it is not reusable
                     Used = true;// Can't use it again
+                if (ManagerOfScene.Instance.CheckIfReplayIsDone())
+                {
+                    Player = GameObject.FindGameObjectWithTag("Player");
+                    Player.GetComponent<Tracker>().interactions.Add(Player.GetComponent<Tracker>().index, this.gameObject);
+                    Debug.Log(Player.GetComponent<Tracker>().index);
+                }
             }
             else if(Input.GetButtonUp("Interact"))// When the user lets go of the button
             {

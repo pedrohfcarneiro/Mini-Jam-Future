@@ -10,7 +10,7 @@ public class Tracker : MonoBehaviour
     public int index = 0;
     public bool canRecordSingle = false;
     public bool rewindDone = false;
-    public bool replayDone = false;
+    public bool replayDone = true;
     public bool canRewind = true;
     public bool canReplay = true;
     public int whichIAm = 0;
@@ -44,7 +44,9 @@ public class Tracker : MonoBehaviour
         #region Initializations
         pointsInTime = new List<PointInTime>(); 
         timer = 0;
+        index = 0;
         canRecordSingle = true;
+        replayDone = true;
         TrackingManager.Instance.isRecording = false;
         #endregion
 
@@ -62,6 +64,7 @@ public class Tracker : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(replayDone);
         if(!canRecordSingle)
         {
             timer += Time.deltaTime;
@@ -90,8 +93,9 @@ public class Tracker : MonoBehaviour
         if(canRecordSingle)
         {
             pointsInTime.Add(new PointInTime(transform.position, transform.rotation));   //Grava uma nova posição e rotação do player
-            Debug.Log(pointsInTime[pointsInTime.Count-1].position);
+            //Debug.Log(pointsInTime[pointsInTime.Count-1].position);
             StopSingleRecord();
+            index++;
         }
     }
 
@@ -212,15 +216,15 @@ public class Tracker : MonoBehaviour
         if (canReplay)
         {
             bool closeToNext = false;
-            replayDone = false;
             foreach(KeyValuePair<int,GameObject> pair in interactions)
             {
-                if((pair.Key <= index + 1 || pair.Key >= index - 1) && !interactingWithKeyValue)
+                if(pair.Key == index && !interactingWithKeyValue)
                 {
+                    Debug.Log("interagiu dnv");
                     pair.Value.GetComponent<Interactable>().Interacting.Invoke();
                     interactingWithKeyValue = true;
                 }
-                else if(pair.Key <= index + 1 || pair.Key >= index - 1)
+                else if(pair.Key != index)
                 {
                     interactingWithKeyValue = false;
                 }
@@ -262,6 +266,7 @@ public class Tracker : MonoBehaviour
 
     public void MyStartReplay()
     {
+        replayDone = false;
         if (pointsInTime != null && canReplay)
         {
             index = 0;

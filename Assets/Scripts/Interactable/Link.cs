@@ -8,8 +8,7 @@ public class Link : Targetable
     [SerializeField] private Sprite[] Sprites = new Sprite[2];// The two sprite states
     private void Start()
     {
-        foreach (Rigidbody2D Object in ObjectsToHold)
-            Object.constraints = RigidbodyConstraints2D.FreezeAll;// Objects can't move
+        Freeze();
         GetComponent<SpriteRenderer>().sprite = Sprites[0];// Change the Sprite to the one that shows it not actuated
     }
     public override void ExecuteAction()// This object's action when its interactable counterpart is actuated
@@ -17,5 +16,11 @@ public class Link : Targetable
         foreach (Rigidbody2D Object in ObjectsToHold)
             Object.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;// Objects can move
         GetComponent<SpriteRenderer>().sprite = Sprites[1];// Change the Sprite to the one that shows it has actuated
+    }
+
+    public void Freeze()
+    {
+        foreach (Rigidbody2D Object in ObjectsToHold)
+            Object.constraints = RigidbodyConstraints2D.FreezeAll;// Objects can't move
     }
 }

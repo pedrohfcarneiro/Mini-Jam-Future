@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6212028856026962617}
   - component: {fileID: 6212028856026962616}
   - component: {fileID: 3361031319196721211}
+  - component: {fileID: 7114649303909487093}
   - component: {fileID: 6212028856026962619}
   - component: {fileID: 6212028856026962618}
   m_Layer: 8
@@ -101,7 +102,22 @@ MonoBehaviour:
   index: 0
   canRecordSingle: 0
   rewindDone: 0
+  replayDone: 1
   canRewind: 1
+  canReplay: 1
+  whichIAm: 0
+--- !u!114 &7114649303909487093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212028856026962621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cc8ef48c9443c4ba93614d6d7cca7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &6212028856026962619
 Rigidbody2D:
   serializedVersion: 4

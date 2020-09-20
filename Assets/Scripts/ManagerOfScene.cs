@@ -76,17 +76,24 @@ public class ManagerOfScene : MonoBehaviour
     {
         if(reload)
         {
-            Debug.Log("chamou reload");
+            //Debug.Log("chamou reload");
             Reload();
         }
         if(replay)
         {
-            Debug.Log("chamou replay");
+            //Debug.Log("chamou replay");
             Replay();
         }
         if(isRewinding)
         {
-            Debug.Log("chamou rewind");
+            //Debug.Log("chamou rewind");
+            foreach(GameObject droppingBox in droppingBoxes)
+            {
+                if(droppingBox.GetComponent<Tracker>().rewindDone)
+                {
+                    droppingBox.GetComponent<DroppingBox>().myChain.Freeze();
+                }
+            }
             Rewind();
         }
     }

@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6212028856026962617}
   - component: {fileID: 6212028856026962616}
+  - component: {fileID: 3361031319196721211}
   - component: {fileID: 6212028856026962619}
   - component: {fileID: 6212028856026962618}
   m_Layer: 8
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: DroppingBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3361031319196721211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212028856026962621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1acd7891351034285ba248c7193408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenRecordings: 0
+  index: 0
+  canRecordSingle: 0
+  rewindDone: 0
+  canRewind: 1
 --- !u!50 &6212028856026962619
 Rigidbody2D:
   serializedVersion: 4

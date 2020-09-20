@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StartLevelTrigger
   - InitialRoom
+  - DroppingBox
   layers:
   - Default
   - TransparentFX

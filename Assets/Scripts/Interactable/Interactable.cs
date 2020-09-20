@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] private float InteractableDistance= .5f;// Defines the distance from which the player can interact with this
-    private UnityAction NearInteractable, Interacting;
+    private UnityAction NearInteractable;
+    public UnityAction Interacting;
     private GameObject Player;// Player Reference
     [SerializeField] private Targetable[] Targets;// Target objects reference
     [SerializeField] private bool Reusable = false;// Boolean to determine if this can be interacted with more than once
@@ -32,12 +33,19 @@ public abstract class Interactable : MonoBehaviour
             if (Input.GetButtonDown("Interact") && !Used)// If the player presses the interact button and is able to use it
             {
                 Debug.Log("Actuated");
-                Interacting.Invoke();// Calls all functions tied to interacting with an interactable object
                 Actuated();// Function that will do something when actuated(Animation, specific effects...)
                 if (!Reusable)// If it is not reusable
                     Used = true;// Can't use it again
-            }   
+            }
+            else if(Input.GetButtonUp("Interact"))// When the user lets go of the button
+            {
+                OnUnActuation();// Function designed to deal with special cases when releasing the interactive object should do something
+            }
         }
+    }
+    public  virtual void OnUnActuation()
+    {
+        // Do something//
     }
     public abstract void Actuated();// Function that will do something when actuated(Animation, specific effects...)
 }

@@ -20,27 +20,34 @@ public class PlayerClass : MonoBehaviour
     {
         if(Controller.m_Grounded)/// Character is grounded
         {
+        	animator.SetBool("Grounded", true);
+        	animator.SetBool("Falling", false);
+        	animator.SetBool("Jumping", false);
+
             if(Mathf.Abs(RB2D.velocity.x)>0.7)// If the speed's magnitude is higher than 0
             {
-               animator.SetBool("Grounded", true);
-               animator.SetBool("IsWalking", true);/// Character is moving
+            	animator.SetBool("IsWalking", true);/// Character is moving
             }
             else 
             {
-               animator.SetBool("IsWalking", false);/// Character is not moving
+            	animator.SetBool("IsWalking", false);/// Character is not moving
             }
         }
         else
         {
-            if(RB2D.velocity.y<=0.5f)
+        	animator.SetBool("Grounded", false);
+            if(RB2D.velocity.y<=-0.3)
             {
-                // Falling Animation
+            	animator.SetBool("Jumping", false);
+            	animator.SetBool("Falling", true); // Falling Animation
             }
-            else if (RB2D.velocity.y>=0.5f)
+            else if (RB2D.velocity.y>=0.3)
             {
-                // Rising animation
+            	animator.SetBool("Falling", false);
+            	animator.SetBool("Jumping", true);// Rising animation
+            	
             }
-            animator.SetBool("Grounded", false);/// Character is not grounded
+            
         }
     }
     public void NearInteractable()

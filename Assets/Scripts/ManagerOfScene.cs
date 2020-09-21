@@ -5,26 +5,7 @@ using UnityEngine.VFX;
 
 public class ManagerOfScene : MonoBehaviour
 {
-    #region Singleton
-    private static ManagerOfScene _instance;
-
-    public static ManagerOfScene Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<ManagerOfScene>();
-                if (_instance == null)
-                {
-                    _instance = new GameObject().AddComponent<ManagerOfScene>();
-                }
-            }
-            return _instance;
-        }
-    }
-
-    #endregion
+    
     
     public bool reload = false;
     public bool isRewinding = false;
@@ -56,9 +37,15 @@ public class ManagerOfScene : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        
     }
-
+    private void OnDestroy()
+    {
+        rewindEvent = null;
+        replayEvent = null;
+        startRewindEvent = null;
+        startReplayEvent = null;
+}
     void Start()
     {
         playerOriginal = GameObject.FindGameObjectWithTag("Player");
@@ -110,7 +97,7 @@ public class ManagerOfScene : MonoBehaviour
             playerClones[0].tag = "Untagged";
             numberOfClones++;
         }
-        playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_blue") as GameObject, initialRoomPosition, playersInitialPositions[0].rotation);
+        playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_blue") as GameObject, initialRoomPosition, Quaternion.identity);
         playerOriginal.GetComponent<Tracker>().canRewind = false;
         playerOriginal.GetComponent<Tracker>().canReplay = false;
         playerOriginal.tag = "Player";

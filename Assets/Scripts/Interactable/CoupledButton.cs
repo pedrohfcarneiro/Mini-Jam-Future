@@ -6,8 +6,10 @@ public class CoupledButton : Interactable
 {
     [SerializeField]private bool OtherPressed=false;// Boolean to indicate if the other coupled button is being pressed
     [SerializeField] private CoupledButton OtherButton;// Reference to the Couple Button should be set on inspector
+    private ManagerOfScene managerScene;
     public override void Awake()
     {
+        managerScene = GameObject.FindObjectOfType<ManagerOfScene>();
         Interacting += OtherButton.setPressed;// Pressing the button is being passed to the Unity Action
         if (Player == null)
             Player = GameObject.FindGameObjectWithTag("Player");
@@ -30,7 +32,7 @@ public class CoupledButton : Interactable
         foreach (Targetable Target in Targets)// Go through the list of Targetable objects
             if (Target != null)// If not null
                 Interacting -= Target.ExecuteAction;// Stores the reference to the linked object
-        if (ManagerOfScene.Instance.CheckIfReplayIsDone())
+        if (managerScene.CheckIfReplayIsDone())
         {
             Player = GameObject.FindGameObjectWithTag("Player");
             Player.GetComponent<Tracker>().interactions.Add(Player.GetComponent<Tracker>().index, this.gameObject);

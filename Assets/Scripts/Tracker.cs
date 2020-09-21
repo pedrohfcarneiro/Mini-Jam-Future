@@ -8,6 +8,8 @@ public class Tracker : MonoBehaviour
     [SerializeField] private float timeBetweenRecordings;
     [SerializeField] private float timeOfSingleRewind;
     [SerializeField] private float timeOfSingleReplay;
+    private ManagerOfScene managerScene;
+    private TrackingManager managerTracking;
     private float timer;
     private float rewindTimer;
     private float replayTimer;
@@ -46,22 +48,24 @@ public class Tracker : MonoBehaviour
     void Start()
     {
         #region Initializations
+        managerScene = GameObject.FindObjectOfType<ManagerOfScene>();
+        managerTracking = GameObject.FindObjectOfType<TrackingManager>();
         pointsInTime = new List<PointInTime>(); 
         timer = 0;
         index = 0;
         canRecordSingle = true;
         replayDone = true;
-        TrackingManager.Instance.isRecording = false;
+        managerTracking.isRecording = false;
         #endregion
 
         //Add me to manager
         switch (this.tag)
         {
             case "DroppingBox":
-                ManagerOfScene.Instance.droppingBoxes.Add(this.gameObject);
+                managerScene.droppingBoxes.Add(this.gameObject);
                 break;
             case "Clone":
-                ManagerOfScene.Instance.trackersInScene.Add(this);
+                managerScene.trackersInScene.Add(this);
                 break;
         }
     }
@@ -80,15 +84,15 @@ public class Tracker : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            TrackingManager.Instance.StartRecording();
+            managerTracking.StartRecording();
         }
         if(Input.GetKeyDown(KeyCode.Backspace))
         {
-            TrackingManager.Instance.StopRecording();
-            ManagerOfScene.Instance.reload = true;
+            managerTracking.StopRecording();
+            managerScene.reload = true;
         }
 
-        if (TrackingManager.Instance.isRecording)
+        if (managerTracking.isRecording)
             Record();
     }
 
@@ -111,34 +115,37 @@ public class Tracker : MonoBehaviour
 
     public void SendInfo()
     {
-        if (this.tag == "Player")
+        if (gameObject != null)
         {
-            switch (TrackingManager.Instance.numberOfCurrentLoops)
+            if (this.tag == "Player")
             {
-                case 0:
-                    TrackingManager.Instance.numberOfCurrentLoops++;
-                    TrackingManager.Instance.loopsPoints.Insert(0, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
-                    whichIAm = 0;
-                    break;
-                case 1:
-                    TrackingManager.Instance.numberOfCurrentLoops++;
-                    TrackingManager.Instance.loopsPoints.Insert(1, new List<PointInTime>(this.pointsInTime));
-                    whichIAm = 1;
-                    break;
+                switch (managerTracking.numberOfCurrentLoops)
+                {
+                    case 0:
+                        managerTracking.numberOfCurrentLoops++;
+                        managerTracking.loopsPoints.Insert(0, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 0;
+                        break;
+                    case 1:
+                        managerTracking.numberOfCurrentLoops++;
+                        managerTracking.loopsPoints.Insert(1, new List<PointInTime>(this.pointsInTime));
+                        whichIAm = 1;
+                        break;
+                }
             }
-        }
-        else if(this.tag == "DroppingBox")
-        {
-            switch (TrackingManager.Instance.DroppingBoxesPoints.Count)
+            else if (this.tag == "DroppingBox")
             {
-                case 0:
-                    TrackingManager.Instance.DroppingBoxesPoints.Insert(0, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
-                    whichIAm = 0;
-                    break;
-                case 1:
-                    TrackingManager.Instance.DroppingBoxesPoints.Insert(1, new List<PointInTime>(this.pointsInTime));
-                    whichIAm = 1;
-                    break;
+                switch (managerTracking.DroppingBoxesPoints.Count)
+                {
+                    case 0:
+                        managerTracking.DroppingBoxesPoints.Insert(0, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 0;
+                        break;
+                    case 1:
+                        managerTracking.DroppingBoxesPoints.Insert(1, new List<PointInTime>(this.pointsInTime));
+                        whichIAm = 1;
+                        break;
+                }
             }
         }
     }
@@ -150,22 +157,22 @@ public class Tracker : MonoBehaviour
             bool closeToNext = false;
             rewindDone = false;
             rewindTimer += Time.deltaTime;
-            if (index <= TrackingManager.Instance.loopsPoints[0].Count && index >= 0)
+            if (index <= managerTracking.loopsPoints[0].Count && index >= 0)
             {
-                if ((TrackingManager.Instance.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
+                if ((managerTracking.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
                 {
                     closeToNext = true;
                 }
             }
-            if (ManagerOfScene.Instance.playerClones != null)
+            if (managerScene.playerClones != null)
             {
-                if (index <= TrackingManager.Instance.loopsPoints[0].Count && index >= 0)
+                if (index <= managerTracking.loopsPoints[0].Count && index >= 0)
                 {
-                    transform.position = TrackingManager.Instance.loopsPoints[0][index].position;
-                    transform.rotation = TrackingManager.Instance.loopsPoints[0][index].rotation;
+                    transform.position = managerTracking.loopsPoints[0][index].position;
+                    transform.rotation = managerTracking.loopsPoints[0][index].rotation;
                     if (closeToNext)
                     {
-                        Debug.Log(TrackingManager.Instance.loopsPoints[0][index].position);
+                        Debug.Log(managerTracking.loopsPoints[0][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
                             index = index - 1;
@@ -192,22 +199,22 @@ public class Tracker : MonoBehaviour
             rewindTimer += Time.deltaTime;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().simulated = false;
-            if (index <= TrackingManager.Instance.DroppingBoxesPoints[whichIAm].Count && index >= 0)
+            if (index <= managerTracking.DroppingBoxesPoints[whichIAm].Count && index >= 0)
             {
-                if ((TrackingManager.Instance.DroppingBoxesPoints[whichIAm][index].position - transform.position).magnitude <= 0.06f)
+                if ((managerTracking.DroppingBoxesPoints[whichIAm][index].position - transform.position).magnitude <= 0.06f)
                 {
                     closeToNext = true;
                 }
             }
-            if (ManagerOfScene.Instance.droppingBoxes != null)
+            if (managerScene.droppingBoxes != null)
             {
-                if (index <= TrackingManager.Instance.DroppingBoxesPoints[whichIAm].Count && index >= 0)
+                if (index <= managerTracking.DroppingBoxesPoints[whichIAm].Count && index >= 0)
                 {
-                    transform.position = TrackingManager.Instance.DroppingBoxesPoints[whichIAm][index].position;
-                    transform.rotation = TrackingManager.Instance.DroppingBoxesPoints[whichIAm][index].rotation;
+                    transform.position = managerTracking.DroppingBoxesPoints[whichIAm][index].position;
+                    transform.rotation = managerTracking.DroppingBoxesPoints[whichIAm][index].rotation;
                     if (closeToNext)
                     {
-                        Debug.Log(TrackingManager.Instance.DroppingBoxesPoints[whichIAm][index].position);
+                        Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
                             index = index - 1;
@@ -232,31 +239,28 @@ public class Tracker : MonoBehaviour
         {
             bool closeToNext = false;
             replayTimer += Time.deltaTime;
-            
-            foreach (KeyValuePair<int,GameObject> pair in interactions)
+            foreach(KeyValuePair<int,GameObject> pair in interactions)
             {
                 if(pair.Key == index && !interactingWithKeyValue)
                 {
                     Debug.Log("interagiu dnv");
                     pair.Value.GetComponent<Interactable>().Interacting.Invoke();
                     interactingWithKeyValue = true;
-                    Debug.Log("Já interagiu?: " + interactingWithKeyValue);
                 }
             }
-
-            if (index < TrackingManager.Instance.loopsPoints[0].Count && index >= 0)
+            if (index < managerTracking.loopsPoints[0].Count && index >= 0)
             {
-                if ((TrackingManager.Instance.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
+                if ((managerTracking.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
                 {
                     closeToNext = true;
                 }
             }
-            if (ManagerOfScene.Instance.playerClones != null)
+            if (managerScene.playerClones != null)
             {
-                if (index < TrackingManager.Instance.loopsPoints[0].Count && index >= 0)
+                if (index < managerTracking.loopsPoints[0].Count && index >= 0)
                 {
-                    transform.position = TrackingManager.Instance.loopsPoints[0][index].position;
-                    transform.rotation = TrackingManager.Instance.loopsPoints[0][index].rotation;
+                    transform.position = managerTracking.loopsPoints[0][index].position;
+                    transform.rotation = managerTracking.loopsPoints[0][index].rotation;
                     if (closeToNext)
                     {
                         if (replayTimer >= timeOfSingleReplay)
@@ -270,6 +274,7 @@ public class Tracker : MonoBehaviour
                 }
                 else
                 {
+
                     replayDone = true;
                 }
             }

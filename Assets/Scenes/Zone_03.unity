@@ -1401,6 +1401,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &234374549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7638450234164467158, guid: a5b4c87b11c39224eb7e1ee120864cb9, type: 3}
+  m_PrefabInstance: {fileID: 1772331308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &271377696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2019,7 +2024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890204974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.96, y: 0.46, z: -3.4200761}
+  m_LocalPosition: {x: -6.96, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2855,6 +2860,10 @@ PrefabInstance:
       propertyPath: Targets.Array.data[4]
       value: 
       objectReference: {fileID: 1099578608}
+    - target: {fileID: 7913935431757772105, guid: 4130116769a9835449737eda6b3b5b84, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 234374549}
     - target: {fileID: 7913935431808947067, guid: 4130116769a9835449737eda6b3b5b84, type: 3}
       propertyPath: Targets.Array.data[0]
       value: 
@@ -2875,5 +2884,9 @@ PrefabInstance:
       propertyPath: Targets.Array.data[4]
       value: 
       objectReference: {fileID: 1099578608}
+    - target: {fileID: 7913935431808947067, guid: 4130116769a9835449737eda6b3b5b84, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 234374549}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4130116769a9835449737eda6b3b5b84, type: 3}

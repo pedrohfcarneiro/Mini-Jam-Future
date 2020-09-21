@@ -74,15 +74,10 @@ public class ManagerOfScene : MonoBehaviour
         if(isRewinding)
         {
             //Debug.Log("chamou rewind");
-            foreach(GameObject droppingBox in droppingBoxes)
-            {
-                if(droppingBox.GetComponent<Tracker>().rewindDone)
-                {
-                    droppingBox.GetComponent<DroppingBox>().myChain.Freeze();
-                }
-            }
+            
             Rewind();
         }
+        
     }
 
     public void Reload()
@@ -141,6 +136,15 @@ public class ManagerOfScene : MonoBehaviour
         playerOriginal.GetComponent<Tracker>().canReplay = false;
         playerOriginal.tag = "Player";
         playerOriginal.GetComponent<Tracker>().canRewind = true;
+        foreach (GameObject droppingBox in droppingBoxes)
+        {
+            Debug.Log("Acabou o rewind?: " + droppingBox.GetComponent<Tracker>().rewindDone);
+            if (droppingBox.GetComponent<Tracker>().rewindDone)
+            {
+                Debug.Log("Tentando congelar a caixa");
+                droppingBox.GetComponent<DroppingBox>().myChain.Freeze();
+            }
+        }
         StartReplay();
     }
     public void StopReplay()

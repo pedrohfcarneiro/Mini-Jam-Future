@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Laser : Targetable
 {
@@ -16,7 +17,7 @@ public class Laser : Targetable
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(Active)
-            UnityEditor.EditorApplication.isPlaying = false;// Editor leaves play mode
+        if (Active)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 }

@@ -69,7 +69,7 @@ public class PlayerClass : MonoBehaviour
         if (other.tag == "StartLevelTrigger")
         {
             TrackManager.StartRecording();
-            managerScene.OnLevelStart();
+            managerScene.OnLevelStart();  
             Debug.Log("chamou onTriggerExit");
         }
     }

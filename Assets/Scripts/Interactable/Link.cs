@@ -20,6 +20,7 @@ public class Link : Targetable
 
     public void Freeze()
     {
+        Debug.Log("Congelou a caixa");
         foreach (Rigidbody2D Object in ObjectsToHold)
             Object.constraints = RigidbodyConstraints2D.FreezeAll;// Objects can't move
     }

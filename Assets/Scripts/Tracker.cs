@@ -231,14 +231,16 @@ public class Tracker : MonoBehaviour
                         Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
+  
                             index = index - 1;
                             rewindTimer = 0;
                         }
                         Debug.Log(index);
                     }
                 }
-                else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position==transform.position))
+                else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position-transform.position).magnitude<=1f)
                 {
+                    Debug.Log("Acabou de dar rewind");
                     rewindDone = true;
                     GetComponent<Rigidbody2D>().simulated = true;
                 }

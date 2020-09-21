@@ -38,6 +38,7 @@ public abstract class Interactable : MonoBehaviour
     public virtual void DetectPlayer()// Function designed to detect if the player is withing interactable distance from the object
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        if(Player!=null)
         if ((Player.transform.position - transform.position).magnitude <= InteractableDistance)// If player is within interactable distance
         {
             NearInteractable.Invoke();// Calls all functions tied to  being near an interactable object

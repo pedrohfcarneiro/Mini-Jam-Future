@@ -10,11 +10,13 @@ public class PlayerClass : MonoBehaviour
     private Rigidbody2D RB2D;// Rigidbody2D type variable that will be used to verify if the player's velocity is different than 0
     private CharacterController2D Controller;// Character controller script type that will be used to determine if the player is grounded
     private ManagerOfScene managerScene;
+    private TrackingManager TrackManager;
     void Start()
     {
         RB2D = GetComponent<Rigidbody2D>();// Reference to the Rigidbody2D component in this object is set
         Controller = GetComponent<CharacterController2D>();// Reference to the Character Controller 2D Script in this object is set
         managerScene = GameObject.FindObjectOfType<ManagerOfScene>();
+        TrackManager = GameObject.Find("TrackingManager").GetComponent<TrackingManager>();// Reference is set
     }
 
     // Update is called once per frame
@@ -66,6 +68,7 @@ public class PlayerClass : MonoBehaviour
     {
         if (other.tag == "StartLevelTrigger")
         {
+            TrackManager.StartRecording();
             managerScene.OnLevelStart();
             Debug.Log("chamou onTriggerExit");
         }

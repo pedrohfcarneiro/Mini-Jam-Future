@@ -82,16 +82,6 @@ public class Tracker : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            managerTracking.StartRecording();
-        }
-        if(Input.GetKeyDown(KeyCode.Backspace))
-        {
-            managerTracking.StopRecording();
-            managerScene.reload = true;
-        }
-
         if (managerTracking.isRecording)
             Record();
     }
@@ -241,14 +231,13 @@ public class Tracker : MonoBehaviour
                         Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
-  
                             index = index - 1;
                             rewindTimer = 0;
                         }
                         Debug.Log(index);
                     }
                 }
-                else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position-transform.position).magnitude<=.5f)
+                else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position==transform.position))
                 {
                     rewindDone = true;
                     GetComponent<Rigidbody2D>().simulated = true;

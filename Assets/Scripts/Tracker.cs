@@ -145,6 +145,20 @@ public class Tracker : MonoBehaviour
                         managerTracking.DroppingBoxesPoints.Insert(1, new List<PointInTime>(this.pointsInTime));
                         whichIAm = 1;
                         break;
+                    case 2:
+                        managerTracking.DroppingBoxesPoints.Insert(2, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 2;
+                        break;
+                    case 3:
+                        managerTracking.DroppingBoxesPoints.Insert(3, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 3;
+                        break;
+                    case 4:
+                        managerTracking.DroppingBoxesPoints.Insert(4, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 4;
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -157,6 +171,15 @@ public class Tracker : MonoBehaviour
             bool closeToNext = false;
             rewindDone = false;
             rewindTimer += Time.deltaTime;
+            foreach (KeyValuePair<int, GameObject> pair in interactions)
+            {
+                if (pair.Key == index && !interactingWithKeyValue)
+                {
+                    Debug.Log("interagiu dnv");
+                    pair.Value.GetComponent<Interactable>().Interacting.Invoke();
+                    interactingWithKeyValue = true;
+                }
+            }
             if (index <= managerTracking.loopsPoints[0].Count && index >= 0)
             {
                 if ((managerTracking.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
@@ -175,6 +198,7 @@ public class Tracker : MonoBehaviour
                         Debug.Log(managerTracking.loopsPoints[0][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
+                            interactingWithKeyValue = false;
                             index = index - 1;
                             rewindTimer = 0;
                         }
@@ -217,13 +241,14 @@ public class Tracker : MonoBehaviour
                         Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
+  
                             index = index - 1;
                             rewindTimer = 0;
                         }
                         Debug.Log(index);
                     }
                 }
-                else
+                else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position-transform.position).magnitude<=.5f)
                 {
                     rewindDone = true;
                     GetComponent<Rigidbody2D>().simulated = true;

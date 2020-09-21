@@ -10,6 +10,16 @@ public class StartMenu : MonoBehaviour
         /////////********* ANIMATION REQUIRED ****************//////////////////
         SceneManager.LoadSceneAsync("Zone_01", LoadSceneMode.Single);// Loads the new scene and erases all currently loaded scene
     }
+    public void StartCredits()
+    {
+        /////////********* ANIMATION REQUIRED ****************//////////////////
+        SceneManager.LoadSceneAsync("Credits", LoadSceneMode.Single);// Loads the new scene and erases all currently loaded scene
+    }
+    public void ReturnMenu()
+    {
+        /////////********* ANIMATION REQUIRED ****************//////////////////
+        SceneManager.LoadSceneAsync("Start Menu", LoadSceneMode.Single);// Loads the new scene and erases all currently loaded scene
+    }
     public void QuitGame()
     {
         /////////********* ANIMATION REQUIRED ****************//////////////////

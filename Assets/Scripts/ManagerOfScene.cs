@@ -89,6 +89,8 @@ public class ManagerOfScene : MonoBehaviour
             playerClones[0].GetComponent<Rigidbody2D>().simulated = false;
             playerClones[0].GetComponent<Movement>().enabled = false;
             playerClones[0].GetComponent<CharacterController2D>().enabled = false;
+            playerClones[0].GetComponent<Animator>().enabled = false;
+            playerClones[0].GetComponent<PlayerClass>().enabled = false;
             playerClones[0].tag = "Untagged";
             numberOfClones++;
         }
@@ -131,7 +133,7 @@ public class ManagerOfScene : MonoBehaviour
     public void StopRewinding()
     {
         isRewinding = false;
-        playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_blue") as GameObject, initialRoomPosition, Quaternion.identity);
+        playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_Red") as GameObject, initialRoomPosition, Quaternion.identity);
         playerOriginal.GetComponent<Tracker>().canRewind = false;
         playerOriginal.GetComponent<Tracker>().canReplay = false;
         playerOriginal.tag = "Player";

@@ -15,6 +15,7 @@ public class Tracker : MonoBehaviour
     private float replayTimer;
     public int index = 0;
     public bool canRecordSingle = false;
+    private bool canGoToNextReplay = false;
     public bool rewindDone = false;
     public bool replayDone = true;
     public bool canRewind = true;
@@ -81,12 +82,20 @@ public class Tracker : MonoBehaviour
                 canRecordSingle = true;               
             }
         }
+        if(!canGoToNextReplay)
+        {
+            replayTimer += Time.deltaTime;
+            if(replayTimer >= timeOfSingleReplay)
+            {
+                canGoToNextReplay = true;
+            }
+        }
 
         if (managerTracking.isRecording)
             Record();
     }
 
-    public void Record()
+    public void Record()            //Quando o player começa a gravar enquanto está rolando replay, o clone fica muito rápido ( VER PAYER CLASS' ONTRIGGEREXIT)
     {
         if(canRecordSingle)
         {
@@ -279,11 +288,12 @@ public class Tracker : MonoBehaviour
                     transform.rotation = managerTracking.loopsPoints[0][index].rotation;
                     if (closeToNext)
                     {
-                        if (replayTimer >= timeOfSingleReplay)
+                        if (canGoToNextReplay)
                         {
                             interactingWithKeyValue = false;
                             index = index + 1;
                             replayTimer = 0;
+                            canGoToNextReplay = false;
                         }
                         Debug.Log(index);
                     }

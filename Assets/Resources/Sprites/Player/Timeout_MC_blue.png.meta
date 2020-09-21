@@ -1,7 +1,94 @@
 fileFormatVersion: 2
 guid: 50a0234232c345b4a853de388c8dd2a4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6125192895601498220
+    second: Timeout_MC_blue_0
+  - first:
+      213: 6936862018177309126
+    second: Timeout_MC_blue_1
+  - first:
+      213: -8444970452805228128
+    second: Timeout_MC_blue_2
+  - first:
+      213: -8353819396431885861
+    second: Timeout_MC_blue_3
+  - first:
+      213: -6379626564303051520
+    second: Timeout_MC_blue_4
+  - first:
+      213: 7760148637056172913
+    second: Timeout_MC_blue_5
+  - first:
+      213: -3714212760900686392
+    second: Timeout_MC_blue_6
+  - first:
+      213: -6882744820695178962
+    second: Timeout_MC_blue_7
+  - first:
+      213: -565211716558460629
+    second: Timeout_MC_blue_8
+  - first:
+      213: -4756215988938282764
+    second: Timeout_MC_blue_9
+  - first:
+      213: 2913628748371982963
+    second: Timeout_MC_blue_10
+  - first:
+      213: 3577632495311200220
+    second: Timeout_MC_blue_11
+  - first:
+      213: -3006525988055145768
+    second: Timeout_MC_blue_12
+  - first:
+      213: 9005610334224999495
+    second: Timeout_MC_blue_13
+  - first:
+      213: -578815372153603404
+    second: Timeout_MC_blue_14
+  - first:
+      213: 1514789389139810778
+    second: Timeout_MC_blue_15
+  - first:
+      213: -1773133723872298028
+    second: Timeout_MC_blue_16
+  - first:
+      213: 7629057818023165194
+    second: Timeout_MC_blue_17
+  - first:
+      213: -5922346552270537397
+    second: Timeout_MC_blue_18
+  - first:
+      213: 978800532617373911
+    second: Timeout_MC_blue_19
+  - first:
+      213: 6255455529960592610
+    second: Timeout_MC_blue_20
+  - first:
+      213: 7126196562147141464
+    second: Timeout_MC_blue_21
+  - first:
+      213: -4336867262289405704
+    second: Timeout_MC_blue_22
+  - first:
+      213: 5155097210128913431
+    second: Timeout_MC_blue_0
+  - first:
+      213: 8221860931159059126
+    second: Timeout_MC_blue_1
+  - first:
+      213: -7772943951311209317
+    second: Timeout_MC_blue_2
+  - first:
+      213: 584955897690087352
+    second: Timeout_MC_blue_3
+  - first:
+      213: -4503262659831907318
+    second: Timeout_MC_blue_4
+  - first:
+      213: 4734563677972373273
+    second: Timeout_MC_blue_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -46,7 +133,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,9 +172,183 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Timeout_MC_blue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714575889959a8740800000000000000
+      internalID: 5155097210128913431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timeout_MC_blue_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bae562a4fae91270800000000000000
+      internalID: 8221860931159059126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timeout_MC_blue_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9cf21bb8a4f02490800000000000000
+      internalID: -7772943951311209317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timeout_MC_blue_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf561b2a4e2e1800800000000000000
+      internalID: 584955897690087352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timeout_MC_blue_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c307e58723181c0800000000000000
+      internalID: -4503262659831907318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timeout_MC_blue_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f9200949c84b140800000000000000
+      internalID: 4734563677972373273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

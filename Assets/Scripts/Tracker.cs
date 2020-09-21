@@ -145,6 +145,20 @@ public class Tracker : MonoBehaviour
                         managerTracking.DroppingBoxesPoints.Insert(1, new List<PointInTime>(this.pointsInTime));
                         whichIAm = 1;
                         break;
+                    case 2:
+                        managerTracking.DroppingBoxesPoints.Insert(2, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 2;
+                        break;
+                    case 3:
+                        managerTracking.DroppingBoxesPoints.Insert(3, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 3;
+                        break;
+                    case 4:
+                        managerTracking.DroppingBoxesPoints.Insert(4, new List<PointInTime>(this.pointsInTime));     //Envia informação do player1 para o TrackingManager (loop1_Points)
+                        whichIAm = 4;
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -223,7 +237,7 @@ public class Tracker : MonoBehaviour
                         Debug.Log(index);
                     }
                 }
-                else
+                else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position-transform.position).magnitude<=.5f)
                 {
                     rewindDone = true;
                     GetComponent<Rigidbody2D>().simulated = true;

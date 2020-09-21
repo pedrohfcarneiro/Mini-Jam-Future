@@ -171,6 +171,15 @@ public class Tracker : MonoBehaviour
             bool closeToNext = false;
             rewindDone = false;
             rewindTimer += Time.deltaTime;
+            foreach (KeyValuePair<int, GameObject> pair in interactions)
+            {
+                if (pair.Key == index && !interactingWithKeyValue)
+                {
+                    Debug.Log("interagiu dnv");
+                    pair.Value.GetComponent<Interactable>().Interacting.Invoke();
+                    interactingWithKeyValue = true;
+                }
+            }
             if (index <= managerTracking.loopsPoints[0].Count && index >= 0)
             {
                 if ((managerTracking.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
@@ -189,6 +198,7 @@ public class Tracker : MonoBehaviour
                         Debug.Log(managerTracking.loopsPoints[0][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
+                            interactingWithKeyValue = false;
                             index = index - 1;
                             rewindTimer = 0;
                         }
@@ -231,6 +241,7 @@ public class Tracker : MonoBehaviour
                         Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
+  
                             index = index - 1;
                             rewindTimer = 0;
                         }

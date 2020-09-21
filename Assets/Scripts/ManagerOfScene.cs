@@ -97,10 +97,6 @@ public class ManagerOfScene : MonoBehaviour
             playerClones[0].tag = "Untagged";
             numberOfClones++;
         }
-        playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_blue") as GameObject, initialRoomPosition, Quaternion.identity);
-        playerOriginal.GetComponent<Tracker>().canRewind = false;
-        playerOriginal.GetComponent<Tracker>().canReplay = false;
-        playerOriginal.tag = "Player";
         reload = false;
         StartRewind();
     }
@@ -140,6 +136,10 @@ public class ManagerOfScene : MonoBehaviour
     public void StopRewinding()
     {
         isRewinding = false;
+        playerOriginal = GameObject.Instantiate(Resources.Load("Prefabs/MC_blue") as GameObject, initialRoomPosition, Quaternion.identity);
+        playerOriginal.GetComponent<Tracker>().canRewind = false;
+        playerOriginal.GetComponent<Tracker>().canReplay = false;
+        playerOriginal.tag = "Player";
         playerOriginal.GetComponent<Tracker>().canRewind = true;
         StartReplay();
     }

@@ -3056,6 +3056,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &362188729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1508018266760242341, guid: 14f6b60cff81e4749903496409835ca9, type: 3}
+  m_PrefabInstance: {fileID: 566152353921711164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &362188735
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362188729}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bdf71fda86050e429241b0c9a05055b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &370971181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5114,6 +5138,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1508018266760242340, guid: 14f6b60cff81e4749903496409835ca9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -80056405158230538, guid: 64c39941c58cc654f98ffb8029327efe, type: 3}
     - target: {fileID: 1508018266760242341, guid: 14f6b60cff81e4749903496409835ca9, type: 3}
       propertyPath: m_Name
       value: TimePlatform

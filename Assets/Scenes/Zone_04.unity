@@ -3263,14 +3263,14 @@ PrefabInstance:
     - target: {fileID: 5615238260316344558, guid: 9e0ad581db816d84bb7ea631c77802fc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5213229242370633579, guid: ca8fc22b299433545986a887053d5ef0, type: 3}
+      objectReference: {fileID: -2828486259269243792, guid: c7b55d02427b19642b3eb1942435437e, type: 3}
     - target: {fileID: 5615238260316344559, guid: 9e0ad581db816d84bb7ea631c77802fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 7.261
       objectReference: {fileID: 0}
     - target: {fileID: 5615238260316344559, guid: 9e0ad581db816d84bb7ea631c77802fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5615238260316344559, guid: 9e0ad581db816d84bb7ea631c77802fc, type: 3}
       propertyPath: m_LocalPosition.z

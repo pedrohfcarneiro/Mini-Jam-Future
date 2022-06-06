@@ -74,7 +74,7 @@ public class Tracker : MonoBehaviour
     void Update()
     {
         //Debug.Log(replayDone);
-        if(!canRecordSingle)
+        if (!canRecordSingle)
         {
             timer += Time.deltaTime;
             if(timer >= timeBetweenRecordings)  //Limita a gravação ao tempo timeBetweenRecordings
@@ -172,16 +172,22 @@ public class Tracker : MonoBehaviour
             rewindTimer += Time.deltaTime;
             foreach (KeyValuePair<int, GameObject> pair in interactions)
             {
-                if (pair.Key == index && !interactingWithKeyValue)
+                if (pair.Key <= index + 9 && pair.Key >= index - 9  && !interactingWithKeyValue)
                 {
-                    Debug.Log("interagiu dnv");
-                    pair.Value.GetComponent<Interactable>().Interacting.Invoke();
-                    interactingWithKeyValue = true;
+                    if (pair.Value.GetComponent<Interactable>().numberOfReinteractions <= pair.Value.GetComponent<Interactable>().numberOfInteractions-1)
+                    {
+                        Debug.Log("interagiu dnv");
+                        Debug.Log("number of Reinteractions:" + pair.Value.GetComponent<Interactable>().numberOfReinteractions);
+                        Debug.Log("numberOfTotalInteractions" + pair.Value.GetComponent<Interactable>().numberOfInteractions);
+                        pair.Value.GetComponent<Interactable>().numberOfReinteractions++;
+                        pair.Value.GetComponent<Interactable>().Interacting.Invoke();
+                        interactingWithKeyValue = true;
+                    }
                 }
             }
             if (index <= managerTracking.loopsPoints[0].Count && index >= 0)
             {
-                if ((managerTracking.loopsPoints[0][index].position - transform.position).magnitude <= 0.06f)
+                if ((managerTracking.loopsPoints[0][index].position - transform.position).magnitude <= 0.2f)
                 {
                     closeToNext = true;
                 }
@@ -194,14 +200,14 @@ public class Tracker : MonoBehaviour
                     transform.rotation = managerTracking.loopsPoints[0][index].rotation;
                     if (closeToNext)
                     {
-                        Debug.Log(managerTracking.loopsPoints[0][index].position);
+                        //Debug.Log(managerTracking.loopsPoints[0][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
                             interactingWithKeyValue = false;
-                            index = index - 1;
+                            index = index - 3;
                             rewindTimer = 0;
                         }
-                        Debug.Log(index);
+                        //Debug.Log(index);
 
                     }
                 }
@@ -237,14 +243,14 @@ public class Tracker : MonoBehaviour
                     transform.rotation = managerTracking.DroppingBoxesPoints[whichIAm][index].rotation;
                     if (closeToNext)
                     {
-                        Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
+                        //Debug.Log(managerTracking.DroppingBoxesPoints[whichIAm][index].position);
                         if (rewindTimer >= timeOfSingleRewind)
                         {
   
-                            index = index - 1;
+                            index = index - 3;
                             rewindTimer = 0;
                         }
-                        Debug.Log(index);
+                        //Debug.Log(index);
                     }
                 }
                 else if((managerTracking.DroppingBoxesPoints[whichIAm][0].position-transform.position).magnitude<=1f)

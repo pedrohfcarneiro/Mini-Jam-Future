@@ -13,7 +13,9 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] private bool Reusable = false;// Boolean to determine if this can be interacted with more than once
     private bool Used=false;// Boolean to determine if, if its not reusable, this has been actuated once or not
     private TrackingManager managerTracking;
-    private ManagerOfScene managerScene;
+    protected ManagerOfScene managerScene;
+    public int numberOfInteractions = 0;
+    public int numberOfReinteractions = 0;
     public virtual void Awake()
     {
         if (Player == null)
@@ -44,7 +46,10 @@ public abstract class Interactable : MonoBehaviour
             NearInteractable.Invoke();// Calls all functions tied to  being near an interactable object
             if (Input.GetButtonDown("Interact") && !Used)// If the player presses the interact button and is able to use it
             {
-                managerScene = GameObject.Find("SceneManager").GetComponent<ManagerOfScene>();
+                    if (managerScene == null)
+                    {
+                        managerScene = GameObject.Find("SceneManager").GetComponent<ManagerOfScene>();
+                    }
                 Debug.Log("Actuated");
                 Actuated();// Function that will do something when actuated(Animation, specific effects...)
                 if (!Reusable)// If it is not reusable
@@ -66,6 +71,7 @@ public abstract class Interactable : MonoBehaviour
     public  virtual void OnUnActuation()
     {
         // Do something//
+        numberOfInteractions++;
     }
     public abstract void Actuated();// Function that will do something when actuated(Animation, specific effects...)
     public void PlayerUpdate()

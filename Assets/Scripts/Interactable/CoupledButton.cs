@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CoupledButton : Interactable
 {
-    [SerializeField]private bool OtherPressed=false;// Boolean to indicate if the other coupled button is being pressed
+    public bool OtherPressed=false;// Boolean to indicate if the other coupled button is being pressed
     [SerializeField] private CoupledButton OtherButton;// Reference to the Couple Button should be set on inspector
-    private ManagerOfScene managerScene;
+    [SerializeField] private Sprite buttonReleased;
+    [SerializeField] private Sprite buttonPressed;
     public override void Awake()
     {
-        managerScene = GameObject.FindObjectOfType<ManagerOfScene>();
         Interacting += OtherButton.setPressed;// Pressing the button is being passed to the Unity Action
         if (Player == null)
             Player = GameObject.FindGameObjectWithTag("Player");
@@ -18,6 +18,7 @@ public class CoupledButton : Interactable
     }
     public override void Actuated()// Called when the player interacts with it
     {
+        GetComponent<SpriteRenderer>().sprite = buttonPressed;
         if(OtherPressed)// Verify if the other button is being pressed at the moment this one is being pressed
         {  
             foreach (Targetable Target in Targets)// Go through the list of Targetable objects
@@ -29,6 +30,7 @@ public class CoupledButton : Interactable
     public override void OnUnActuation()// When this button is unpressed
     {
         base.OnUnActuation();
+        GetComponent<SpriteRenderer>().sprite = buttonReleased;
         foreach (Targetable Target in Targets)// Go through the list of Targetable objects
             if (Target != null)// If not null
                 Interacting -= Target.ExecuteAction;// Stores the reference to the linked object

@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -81,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -103,6 +104,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -482,6 +485,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Jet Platform SpriteSheet 1_7: 7498873587469862004
+      Jet Platform SpriteSheet 1_14: 5878355049574294171
+      Jet Platform SpriteSheet 1_12: -5714883664242372044
+      Jet Platform SpriteSheet 1_11: -788601155956422199
+      Jet Platform SpriteSheet 1_15: 7153299860816322402
+      Jet Platform SpriteSheet 1_4: 8954339915501980250
+      Jet Platform SpriteSheet 1_1: -480439843695894307
+      Jet Platform SpriteSheet 1_10: -484294262819267531
+      Jet Platform SpriteSheet 1_9: -1308535485958203348
+      Jet Platform SpriteSheet 1_6: 2857255382145830702
+      Jet Platform SpriteSheet 1_2: 3949916154381221044
+      Jet Platform SpriteSheet 1_5: 7711773131937714196
+      Jet Platform SpriteSheet 1_8: 2678204804682960044
+      Jet Platform SpriteSheet 1_0: 644648243586645364
+      Jet Platform SpriteSheet 1_13: 1358029117753103301
+      Jet Platform SpriteSheet 1_3: 7539032687346508368
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.SceneManagement;
 
 public class ManagerOfScene : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class ManagerOfScene : MonoBehaviour
     public int numberOfClones = 0;
     public List<GameObject> droppingBoxes = new List<GameObject>();
     public List<Tracker> trackersInScene = new List<Tracker>();
+    public List<Interactable> interactables = new List<Interactable>();
     #endregion
 
     public delegate void Management();
@@ -50,6 +52,14 @@ public class ManagerOfScene : MonoBehaviour
     {
         playerOriginal = GameObject.FindGameObjectWithTag("Player");
         initialRoomPosition = GameObject.FindGameObjectWithTag("InitialRoom").transform.position;
+        Interactable[] aux = FindObjectsOfType<Interactable>();
+        foreach(Interactable inter in aux)
+        {
+            inter.numberOfInteractions = 0;
+            inter.numberOfReinteractions = 0;
+            interactables.Add(inter);
+        }
+
 
         //Find Trackers in Scene
         Tracker[] obs = FindObjectsOfType<Tracker>();
@@ -77,7 +87,11 @@ public class ManagerOfScene : MonoBehaviour
             
             Rewind();
         }
-        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
     }
 
     public void Reload()
@@ -145,6 +159,14 @@ public class ManagerOfScene : MonoBehaviour
             {
                 Debug.Log("Tentando congelar a caixa");
                 droppingBox.GetComponent<DroppingBox>().myChain.Freeze();
+                droppingBox.GetComponent<Tracker>().replayDone = true;
+            }
+        }
+        foreach(Interactable inter in interactables)
+        {
+            if(inter.GetComponent<CoupledButton>() != null)
+            {
+                inter.GetComponent<CoupledButton>().OtherPressed = false;
             }
         }
         StartReplay();
@@ -161,7 +183,9 @@ public class ManagerOfScene : MonoBehaviour
     public bool CheckIfRewindIsDone()
     {
         int counter = 0;
-        foreach(Tracker tr in trackersInScene)
+        Debug.Log(counter);
+        Debug.Log(trackersInScene.Count);
+        foreach (Tracker tr in trackersInScene)
         {
             if (tr.rewindDone)
                 counter++;

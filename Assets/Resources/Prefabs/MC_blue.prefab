@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenRecordings: 0.01
-  timeOfSingleRewind: 0.0025
+  timeOfSingleRewind: 0.0005
   timeOfSingleReplay: 0.01
   index: 0
   canRecordSingle: 0
